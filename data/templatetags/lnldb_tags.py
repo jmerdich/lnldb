@@ -1,6 +1,6 @@
 from django import template
 from django.utils.timezone import localtime
-
+import six
 register = template.Library()
 
 
@@ -19,4 +19,4 @@ def daterange(datetime_start, datetime_end):
 
 @register.filter()
 def is_list(string):
-    return hasattr(string, '__iter__') and not isinstance(string, basestring)
+    return hasattr(string, '__iter__') and not isinstance(string, six.string_types)

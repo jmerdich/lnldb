@@ -81,7 +81,7 @@ class Meeting(models.Model):
     def get_absolute_url(self):
         return reverse('meeting-view', args=[self.id])
 
-    def __unicode__(self):
+    def __str__(self):
         return "Meeting For %s" % self.datetime.date()
 
     class Meta:
@@ -127,7 +127,7 @@ class TargetEmailList(models.Model):
     name = models.CharField(max_length=16)
     email = models.EmailField()
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s (%s)" % (self.name, self.email)
 
 
@@ -140,7 +140,7 @@ class AnnounceSend(models.Model):
 class MeetingType(models.Model):
     name = models.CharField(max_length=32)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 

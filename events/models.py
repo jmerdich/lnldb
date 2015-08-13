@@ -204,7 +204,7 @@ class Building(models.Model):
     name = models.CharField(max_length=128)
     shortname = models.CharField(max_length=4)
 
-    def __unicode__(self):
+    def __str__(self):
         # return "<Building (%s,%s)>" % (self.name, self.shortname)
         return self.name
 
@@ -224,7 +224,7 @@ class Location(models.Model):
     #
     building = models.ForeignKey(Building)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     class Meta:
@@ -256,7 +256,7 @@ class Extra(models.Model):
     disappear = models.BooleanField(default=False, help_text="Disappear this extra instead of disable")
     checkbox = models.BooleanField(default=False, help_text="Use a checkbox instead of an integer entry")
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s ($%s)" % (self.name, self.cost)
 
     @property
@@ -271,7 +271,7 @@ class Category(models.Model):
     """ A category """
     name = models.CharField(max_length=16)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -289,7 +289,7 @@ class Service(models.Model):
     # for the workorder form. Nice And Pretty Descriptions
     help_desc = models.TextField(null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.longname
 
 
@@ -318,7 +318,7 @@ class Billing(models.Model):
     opt_out_initial_email = models.BooleanField(default=False)
     opt_out_update_email = models.BooleanField(default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         out = "Bill for %s" % self.event.event_name
         if self.date_paid:
             out += " (PAID)"
@@ -529,7 +529,7 @@ class Event(models.Model):
 
         return out
 
-    def __unicode__(self):
+    def __str__(self):
         return self.event_name
 
     class Meta:
@@ -877,7 +877,7 @@ class CCReport(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     for_service_cat = models.ManyToManyField(Category, verbose_name="Services", blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s - %s' % (self.event, self.crew_chief)
 
     @property
@@ -917,7 +917,7 @@ class Fund(models.Model):
     def get_absolute_url(self):
         return reverse('admin-fundedit', args=[self.id])
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s (%s)" % (self.name, self.fopal)
 
     class Meta:
@@ -955,7 +955,7 @@ class Organization(models.Model):  # AKA Client
     def fopals(self):
         return ", ".join([f.fopal for f in self.accounts.all()])
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     @property
@@ -1026,7 +1026,7 @@ class Hours(models.Model):
     user = models.ForeignKey(User, related_name="hours")
     hours = models.DecimalField(null=True, max_digits=7, decimal_places=2, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s (%s)' % (self.event, self.user)
 
     class Meta:

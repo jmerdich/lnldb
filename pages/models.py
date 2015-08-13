@@ -17,7 +17,7 @@ class Page(models.Model):
 
     imgs = models.ManyToManyField('CarouselImg', blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     ordering = ['nav_pos']
@@ -30,5 +30,5 @@ class CarouselImg(models.Model):
     href_words = models.CharField(max_length=64, null=True, blank=True)
     href_desc = models.CharField(max_length=128, null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.internal_name

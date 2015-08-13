@@ -149,7 +149,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'markdown_deux',
-    'django_cas',
+    # 'django_cas',
+    'cas',
     'django_extensions',
 
     'events',
@@ -330,9 +331,9 @@ MPTT_ADMIN_LEVEL_INDENT = 20
 try:
     local_settings_file = open(here('local_settings.py'), 'r')
     local_settings_script = local_settings_file.read()
-    exec local_settings_script
-except IOError, e:
-    print "Unable to open local settings! %s" % e
+    exec(local_settings_script)
+except IOError as e:
+    print("Unable to open local settings! %s" % e)
 
 
 if not os.path.exists(STATIC_ROOT):

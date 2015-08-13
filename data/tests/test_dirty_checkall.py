@@ -101,7 +101,7 @@ class UrlsTest(test.TestCase):
                     if not quiet:
                         print(status + url)
                     self.assertIn(response.status_code, allowed_http_codes)
-                    self.assertNotIn("TEMPLATE_WARNING", response.content)
+                    self.assertNotIn(b"TEMPLATE_WARNING", response.content)
                     if credentials:
                         # if we just tested logout, then login again
                         self.client.login(**credentials)

@@ -25,7 +25,7 @@ class Projectionist(models.Model):
     license_number = models.CharField(max_length=10, null=True, blank=True)
     license_expiry = models.DateField(null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.user.get_full_name()
 
     @property
@@ -72,7 +72,7 @@ class PITLevel(models.Model):
     name_long = models.CharField(max_length=16)
     ordering = models.IntegerField(default=0)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s (%s)' % (self.name_long, self.name_short)
 
 

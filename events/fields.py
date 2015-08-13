@@ -1,5 +1,5 @@
 from django import forms
-from widgets import ExtraSelectorWidget
+from .widgets import ExtraSelectorWidget
 from itertools import groupby
 
 

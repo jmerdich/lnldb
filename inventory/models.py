@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
+import six# Create your models here.
 import logging
 import datetime
 
@@ -178,7 +178,7 @@ class EquipmentClass(models.Model):
 
     wiki_text = models.TextField(help_text="How to use this item", null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     @cached_property
@@ -207,7 +207,7 @@ class EquipmentStatus(models.Model):
     name = models.CharField(max_length=32)
     glyphicon = models.CharField(max_length=32)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -223,7 +223,7 @@ class EquipmentMaintEntry(models.Model):
                                   null=False, blank=False)
     status = models.ForeignKey(EquipmentStatus, null=False, blank=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return str(self.date)
 
     class Meta:

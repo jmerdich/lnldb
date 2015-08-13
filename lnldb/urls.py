@@ -80,10 +80,10 @@ urlpatterns = patterns('',
                        url(r'^login/$', 'acct.views.smart_login', name="login"),
                        # best use CAS for logout, since it's guaranteed to log the user out
                        #  (without immediately signing them back in)
-                       url(r'^logout/$', 'django_cas.views.logout', name="logout"),
+                       url(r'^logout/$', 'cas.views.logout', name="logout"),
 
-                       url(r'^cas/login/$', 'django_cas.views.login', name="cas-login"),
-                       url(r'^cas/logout/$', 'django_cas.views.logout', name="cas-logout"),
+                       url(r'^cas/login/$', 'cas.views.login', name="cas-login"),
+                       url(r'^cas/logout/$', 'cas.views.logout', name="cas-logout"),
                        # maybe we do
                        url(r'^local/login/$', 'django.contrib.auth.views.login',
                            {'template_name': 'registration/login.html',

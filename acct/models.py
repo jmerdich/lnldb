@@ -130,7 +130,7 @@ class Orgsync_OrgCat(models.Model):
     name = models.CharField(max_length=64)
     orgsync_id = models.IntegerField()
 
-    def __unicode__(self):
+    def __str__(self):
         return "<OrgSyncOrgCat (%s)>" % self.name
 
 
@@ -142,7 +142,7 @@ class Orgsync_Org(models.Model):
     president_email = models.EmailField(null=True, blank=True)
     org_email = models.EmailField(null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return "<OrgSyncOrg (%s)>" % self.name
 
 
@@ -158,7 +158,7 @@ class Orgsync_User(models.Model):
     about_me = models.TextField(null=True, blank=True)
     portfolio = models.CharField(max_length=256, null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return "<OrgSyncUser (%s,%s)>" % (self.first_name, self.last_name)
 
 # example {"id":918421,"title":null,"account_id":575310,"first_name":"Aakriti","last_name":"Bhakhri",
